@@ -14,10 +14,10 @@ int main(void)
 	{
 		if (n % 3 == 0)
 			sum += n;
-		if (n % 5 == 0)
+		else if (n % 5 == 0)
 			sum += n;
 		n++;
 	}
-	printf("%d/n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
