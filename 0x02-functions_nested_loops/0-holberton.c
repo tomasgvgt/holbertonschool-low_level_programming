@@ -1,6 +1,4 @@
-#include <stdio.h>
-
-int _putchar(char c);
+#include "holberton.h"
 
 /**
  * main - entry point
