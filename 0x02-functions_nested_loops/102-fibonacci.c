@@ -7,8 +7,7 @@
 
 int main(void)
 {
-	long long int fibo, var;
-	int i;
+	long int fibo, var, i;
 
 	for (i = 1; i <= 50; i++)
 	{
@@ -21,7 +20,7 @@ int main(void)
 			fibo += var;
 			var = fibo - var;
 		}
-		printf("%lld", fibo);
+		printf("%ld", fibo);
 		if (i != 50)
 			printf(", ");
 	}
