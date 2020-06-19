@@ -13,7 +13,7 @@ int main(void)
 
 	num = 612852475143, possible_prime = 1, largest_prime = 1;
 	/*search for a possbile divisor.*/
-	for (divisor = 1; divisor <= num; divisor++)
+	for (divisor = 1; divisor <= num / 2; divisor++)
 	{
 		if (num % divisor == 0) /*is a divisor*/
 		{
