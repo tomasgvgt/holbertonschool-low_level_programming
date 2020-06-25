@@ -1,9 +1,16 @@
 #include "holberton.h"
 
+/**
+ * cap_string - capitalizes a string
+ * @s: string
+ * Return: String capitalized
+ */
+
 char *cap_string(char *s)
 {
 	int i, j;
-	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\0'};
+	char sep[] = {' ', '\t', '\n', ',', ';', '.',
+								'!', '?', '"', '(', ')', '{', '}', '\0'};
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
