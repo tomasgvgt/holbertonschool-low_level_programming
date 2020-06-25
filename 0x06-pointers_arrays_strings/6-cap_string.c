@@ -1,0 +1,17 @@
+#include "holberton.h"
+
+char *cap_string(char *s)
+{
+	int i, j;
+	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\0'};
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		for (j = 0; sep[j] != '\0'; j++)
+		{
+			if (s[i] == sep[j] && s[i + 1] >= 'a' && s[i + 1] <= 'z')
+				s[i + 1] -= 32;
+		}
+	}
+	return (s);
+}
