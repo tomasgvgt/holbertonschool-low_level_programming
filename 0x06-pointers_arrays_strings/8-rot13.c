@@ -20,5 +20,6 @@ char *rot13(char *s)
 				s[i] = rot13[j];
 		}
 	}
+	s[i] = '\0';
 	return (s);
 }
