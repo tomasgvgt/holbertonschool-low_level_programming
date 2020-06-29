@@ -23,9 +23,9 @@ unsigned int _strspn(char *s, char *accept)
 				count++;
 				break;
 			}
-			else
-				break;
 		}
+		if (s[i] != accept[j])
+			break;
 	}
 	return (count);
 }
