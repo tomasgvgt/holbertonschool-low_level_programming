@@ -11,7 +11,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *p;
+	char *p = '\0';
 	int i, j, k;
 
 	if (needle[0] == '\0')
@@ -35,6 +35,5 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 
-	p = '\0';
 	return (p);
 }
