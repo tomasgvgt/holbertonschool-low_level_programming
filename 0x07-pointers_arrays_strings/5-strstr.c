@@ -35,5 +35,6 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 
+	p = '\0';
 	return (p);
 }
