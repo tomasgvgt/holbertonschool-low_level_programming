@@ -1,17 +1,11 @@
 #include "holberton.h"
 #include <stdlib.h>
-
-/**
- * argstostr  - Concatenates arguments of the program
- * @ac: Argument counter
- * @av: Argument vector.
- * Return: pointer to string.
- */
+#include <stdio.h>
 
 char **strtow(char *str)
 {
 	char **s;
-	int i, j, k, l, height;
+	int i, j, k, l = 0, height;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
@@ -19,36 +13,43 @@ char **strtow(char *str)
 	/*count the number of words*/
 	for (i = 0, height = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == ' ')
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			height++;
 	}
-	height++;
 
 	s = (malloc((1 + height) * sizeof(char *)));
 	if (s == NULL)
 		return (s);
 
-	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++, k++)
+	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++)
 	{
-		if (str[i + 1] == ' ' || str[i + 1] == '\0')
+		if ((i == 0 || str[i - 1] == ' ') && (str[i] != ' '))
 		{
-			s[j] = malloc((2 + k) * sizeof(char));
+			for (k = 0; str[i] != ' '; i++, k++)
+				;
+			s[j] = malloc((1 + k) * sizeof(char));
 			if (s[j] == NULL)
 			{
 				for (l = 0; l < j; l++)
 					free(s[l]);
 				free(s);
-				return (NULL);
 			}
-			s[j][k + 1] = '\0';
-			i++, k = -1, j++;
+			j++, i--;
+		}
+	}
+
+	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++)
+	{
+		if ((i == 0 || str[i - 1] == ' ') && (str[i] != ' '))
+		{
+			for (k = 0; str[i] != ' '; i++, k++)
+			{
+				s[j][k] = str[i];
+			}
+			s[j][k] = '\0';
+			j++, i--;
 		}
 	}
 	s[j] = NULL;
-	for (i = 0, j = 0; s[j] != NULL; j++, i++)
-	{
-		for (k = 0; s[j][k] != '\0'; k++, i++)
-			s[j][k] = str[i];
-	}
 	return (s);
 }
