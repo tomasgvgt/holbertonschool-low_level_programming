@@ -9,18 +9,14 @@ char **strtow(char *str)
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-
-	/*count the number of words*/
 	for (i = 0, height = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			height++;
 	}
-
 	s = (malloc((1 + height) * sizeof(char *)));
 	if (s == NULL)
 		return (s);
-
 	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++)
 	{
 		if ((i == 0 || str[i - 1] == ' ') && (str[i] != ' '))
@@ -36,20 +32,16 @@ char **strtow(char *str)
 			}
 			j++, i--;
 		}
+		s[j] = NULL;
 	}
-
 	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++)
 	{
 		if ((i == 0 || str[i - 1] == ' ') && (str[i] != ' '))
 		{
 			for (k = 0; str[i] != ' '; i++, k++)
-			{
 				s[j][k] = str[i];
-			}
-			s[j][k] = '\0';
-			j++, i--;
+			s[j][k] = '\0', j++, i--;
 		}
 	}
-	s[j] = NULL;
 	return (s);
 }
