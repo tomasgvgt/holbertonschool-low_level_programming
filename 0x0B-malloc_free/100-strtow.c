@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * strtow - creates an array of strings and fills it
+ * with words from given array
+ * @str: passed string.
+ * Return: Array of strings.
+ */
+
 char **strtow(char *str)
 {
 	char **s;
