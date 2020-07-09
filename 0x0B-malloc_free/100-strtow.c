@@ -33,12 +33,11 @@ char **strtow(char *str)
 			j++, i--;
 		}
 	}
-	s[j] = NULL;
 	fill_array(str, s);
 	return (s);
 }
 
-void fill_array(char *str, char **s)
+char **fill_array(char *str, char **s)
 {
 	int i, j, k;
 
@@ -51,4 +50,6 @@ void fill_array(char *str, char **s)
 			s[j][k] = '\0', j++, i--;
 		}
 	}
+	s[j] = NULL;
+	return (s);
 }
