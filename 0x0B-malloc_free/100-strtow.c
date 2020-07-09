@@ -32,8 +32,16 @@ char **strtow(char *str)
 			}
 			j++, i--;
 		}
-		s[j] = NULL;
 	}
+	s[j] = NULL;
+	fill_array(str, s);
+	return (s);
+}
+
+void fill_array(char *str, char **s)
+{
+	int i, j, k;
+
 	for (i = 0, j = 0, k = 0; str[i] != '\0'; i++)
 	{
 		if ((i == 0 || str[i - 1] == ' ') && (str[i] != ' '))
@@ -43,5 +51,4 @@ char **strtow(char *str)
 			s[j][k] = '\0', j++, i--;
 		}
 	}
-	return (s);
 }
