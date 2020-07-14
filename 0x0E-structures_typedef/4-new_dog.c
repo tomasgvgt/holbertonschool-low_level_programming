@@ -10,6 +10,7 @@
  * Return: dog_t structure.
  */
 
+/**
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
@@ -46,5 +47,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	new->age = age;
 
+	return (new);
+}
+*/
+
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t nd;
+	dog_t *new;
+
+	nd.name = name;
+	nd.age = age;
+	nd.owner = owner;
+
+	new = &nd;
 	return (new);
 }
