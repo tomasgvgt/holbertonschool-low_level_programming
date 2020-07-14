@@ -3,7 +3,7 @@
 
 /**
  * struct dog - tructure of a dog.
- * @dog: pointer.
+ * @name: pointer.
  * @age: age of dog.
  * @owner: pointer to the ouner name.
  */
@@ -15,4 +15,5 @@ struct dog
 	char *owner;
 };
 
+void init_dog(struct dog *d, char *name, float age, char *owner);
 #endif
