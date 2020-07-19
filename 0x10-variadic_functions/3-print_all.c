@@ -23,20 +23,20 @@ void print_all(const char *const format, ...)
 			is_format = 1;
 			break;
 		case 'i':
-			printf("%d", va_arg(list, int));
-			is_format = 1;
+			printf("%d", va_arg(list, int)), is_format = 1;
 			break;
 		case 'f':
-			printf("%f", (float)va_arg(list, double));
-			is_format = 1;
+			printf("%f", (float)va_arg(list, double)), is_format = 1;
 			break;
 		case 's':
 			string = va_arg(list, char *);
 			if (string == NULL)
+			{
 				printf("(nil)");
-			else
-				printf("%s", string);
-			is_format = 1;
+				is_format = 1;
+				break;
+			}
+			printf("%s", string), is_format = 1;
 			break;
 		default:
 			is_format = 0;
