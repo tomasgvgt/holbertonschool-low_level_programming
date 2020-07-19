@@ -13,6 +13,8 @@ void print_all(const char *const format, ...)
 	char *string;
 	va_list list;
 
+	if (format == NULL)
+		return;
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
@@ -32,8 +34,7 @@ void print_all(const char *const format, ...)
 			string = va_arg(list, char *);
 			if (string == NULL)
 			{
-				printf("(nil)");
-				is_format = 1;
+				printf("(nil)"), is_format = 1;
 				break;
 			}
 			printf("%s", string), is_format = 1;
