@@ -13,22 +13,20 @@ void print_all(const char *const format, ...)
 	char *string;
 	va_list list;
 
-	if (format == NULL)
-		return;
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
 		switch (format[i])
 		{
 		case 'c':
-			printf("%c", (char)va_arg(list, int));
+			printf("%c", va_arg(list, int));
 			is_format = 1;
 			break;
 		case 'i':
 			printf("%d", va_arg(list, int)), is_format = 1;
 			break;
 		case 'f':
-			printf("%f", (float)va_arg(list, double)), is_format = 1;
+			printf("%f", va_arg(list, double)), is_format = 1;
 			break;
 		case 's':
 			string = va_arg(list, char *);
