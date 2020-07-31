@@ -23,7 +23,7 @@ void print_binary(unsigned long int n)
 		num = num >> 1;
 		shift_times++;
 	}
-	/*shift_times--;*/
+	shift_times--;
 
 	while (shift_times >= 0)
 	{
