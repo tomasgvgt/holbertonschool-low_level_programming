@@ -8,7 +8,7 @@
 void print_binary(unsigned long int n)
 {
 	int shift_times = 0;
-	long int num, n_shifted, prev_n_shifted;
+	unsigned long int num, n_shifted, prev_n_shifted;
 	char bit;
 
 	if (n == 0)
