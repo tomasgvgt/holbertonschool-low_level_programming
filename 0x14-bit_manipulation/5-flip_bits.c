@@ -11,8 +11,8 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	int shift_times = 0, count = 0;
-	long int n1, m1, n_shifted, prev_n_shifted;
-	long int m_shifted, prev_m_shifted;
+	unsigned long int n1, m1, n_shifted, prev_n_shifted;
+	unsigned long int m_shifted, prev_m_shifted;
 	char bit_n, bit_m;
 
 	for (n1 = n, m1 = m; n1 > 0 || m1 > 0; shift_times++)
