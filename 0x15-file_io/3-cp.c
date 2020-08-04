@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 		wr = write(fd2, buf, rd);
 		if (wr == -1)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]), exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	} while (rd == 1024);
 	cl1 = close(fd1);
 	if (cl1 == -1)
