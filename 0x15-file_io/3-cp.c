@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd2 == -1)
-		dprintf(2, "Can't write to %s", argv[2]), exit(99);
+		dprintf(STDERR_FILENO, "Can't write to %s", argv[2]), exit(99);
 	do
 	{
 		rd = read(fd1, buf, 1024);
 		if (rd == -1)
-			dprintf(, "Error: Can't read from file %s\n", argv[1]), exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 		wr = write(fd2, buf, rd);
 		if (wr == -1)
 			dprintf(STDERR_FILENO, "Can't write to %s", argv[2]), exit(99);
