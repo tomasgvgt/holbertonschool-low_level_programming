@@ -10,7 +10,7 @@
  * main - Copies the content of a file to anotherone
  * @argc: argument counter
  * @argv: argument vector
- * Return: 1 succes.
+ * Return: 0 succes.
  */
 
 int main(int argc, char *argv[])
