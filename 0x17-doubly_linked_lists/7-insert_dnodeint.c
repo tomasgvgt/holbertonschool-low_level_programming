@@ -19,6 +19,10 @@ if (idx == 0)
 node = add_dnodeint(h, n);
 return (node);
 }
+
+else if (*h == NULL)
+return (NULL);
+
 node = malloc(sizeof(dlistint_t));
 if (node == NULL)
 return (NULL);
