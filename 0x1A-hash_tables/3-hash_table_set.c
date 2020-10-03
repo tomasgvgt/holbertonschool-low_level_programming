@@ -14,22 +14,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht | !key | !value)
 		return (0);
-	index = key_index((unsigned char *)key, ht->size);
-	/*set tmp to index in the array*/
-	tmp = ht->array[index];
-	/*search if there is a key equal to the one given*/
-	while (tmp)
+	index = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->array[index]; /*set tmp to index in the array*/
+	while (tmp) /*search if there is a key equal to the one given*/
 	{
 		if (strcmp(tmp->key, (char *)key) == 0)
 		{
 			free(tmp->value);
 			tmp->value = strdup(value);
+			if (!tmp->value)
+				return (0);
 			return (1);
 		}
 		tmp = tmp->next;
 	}
 	/*If there was not key equal to the one given, create and set new node*/
-	new_node = calloc(1, sizeof(hash_node_t));
+	new_node = malloc(sizeof(hash_node_t));
 	if (!new_node)
 		return (0);
 	new_node->key = strdup(key);
