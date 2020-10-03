@@ -18,9 +18,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	tmp = ht->array[index]; /*set tmp to index in the array*/
 	while (tmp) /*search if there is a key equal to the one given*/
 	{
-		if (strcmp(tmp->key, (char *)key) == 0)
+		if (strcmp(tmp->key, key) == 0)
 		{
-			free(tmp->value);
+			if (tmp->value)
+				free(tmp->value);
 			tmp->value = strdup(value);
 			if (!tmp->value)
 				return (0);
@@ -44,8 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_node->key), free(new_node);
 		return (0);
 	}
-	/*PLace new_node at the begining of the list of the index*/
-	tmp = ht->array[index];
+	tmp = ht->array[index]; /*PLace node at begining of the list*/
 	new_node->next = tmp;
 	tmp = new_node;
 	return (1);
