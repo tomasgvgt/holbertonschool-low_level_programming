@@ -29,7 +29,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp = tmp->next;
 	}
 	/*If there was not key equal to the one given, create and set new node*/
-	new_node = malloc(sizeof(hash_node_t));
+	new_node = calloc(1, sizeof(hash_node_t));
 	if (!new_node)
 		return (0);
 	new_node->key = strdup(key);
